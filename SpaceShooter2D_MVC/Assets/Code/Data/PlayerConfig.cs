@@ -16,5 +16,13 @@ namespace TheRetroSpaceShooter
         [SerializeField] private float _healthOfPlater;
 
         #endregion
+
+
+        #region Properties
+
+        internal Player PlayerPrefab => _playerPrefab;
+        internal float Speed => _speedOfPlayer;
+
+        #endregion
     }
 }
