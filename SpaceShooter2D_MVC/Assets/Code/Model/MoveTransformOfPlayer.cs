@@ -33,10 +33,10 @@ namespace TheRetroSpaceShooter
 
         #region Methods
 
-        public void Move(float horizontal, float deltaTime)
+        public void Move(float horizontal, float vertical, float deltaTime)
         {
             var speed = deltaTime * Speed;
-            _moveVector.Set(horizontal * speed, 0.0f, 0.0f);
+            _moveVector.Set(horizontal * speed, vertical * speed, 0.0f);
             _transformOfPlayer.localPosition += _moveVector;
         }
 

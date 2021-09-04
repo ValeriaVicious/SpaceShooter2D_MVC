@@ -30,9 +30,9 @@ namespace TheRetroSpaceShooter
 
         #region Methods
 
-        public void Move(float horizontal, float deltaTime)
+        public void Move(float horizontal, float vertical, float deltaTime)
         {
-            _moveSpaceShip.Move(horizontal, deltaTime);
+            _moveSpaceShip.Move(horizontal, vertical, deltaTime);
         }
 
         #endregion

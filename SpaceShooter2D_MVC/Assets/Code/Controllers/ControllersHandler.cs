@@ -44,7 +44,7 @@ namespace TheRetroSpaceShooter
 
         public void Execute(float deltaTime)
         {
-            for (int i = 0; i < _executeControllers.Count; ++i)
+            for (int i = 0; i < _executeControllers.Count; i++)
             {
                 _executeControllers[i].Execute(Time.deltaTime);
             }

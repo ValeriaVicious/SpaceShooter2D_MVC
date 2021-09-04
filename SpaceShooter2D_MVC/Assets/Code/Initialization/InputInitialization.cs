@@ -7,6 +7,7 @@ namespace TheRetroSpaceShooter
         #region Fields
 
         private IUserInputProxy _horizontalInput;
+        private IUserInputProxy _verticalInput;
 
         #endregion
 
@@ -16,6 +17,7 @@ namespace TheRetroSpaceShooter
         public InputInitialization()
         {
             _horizontalInput = new InputHorizontal();
+            _verticalInput = new InputVertical();
         }
 
         #endregion
@@ -28,9 +30,9 @@ namespace TheRetroSpaceShooter
 
         }
 
-        public IUserInputProxy GetInput()
+        public (IUserInputProxy horizontal, IUserInputProxy vertical) GetInput()
         {
-            var result = _horizontalInput;
+            (IUserInputProxy horizontal, IUserInputProxy vertical) result = (_horizontalInput, _verticalInput);
             return result;
         }
 
