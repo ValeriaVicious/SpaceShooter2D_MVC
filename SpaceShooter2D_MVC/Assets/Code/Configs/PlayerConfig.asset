@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ffcba950e3b8145bc7b4ce59b26ac4, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  _playerPrefab: {fileID: 0}
-  _rocketBody: {fileID: 0}
-  _rocketSprite: {fileID: 0}
-  _speedOfPlayer: 0
+  _playerPrefab: {fileID: 6778216720960967643, guid: 061f4c7f8d092444f9991b26e2dacaeb, type: 3}
+  _rocketBody: {fileID: 5644348639098549672, guid: f11b6fc96aede6540b9e87437b5c8706, type: 3}
+  _rocketSprite: {fileID: 21300000, guid: 63ffc1f616ad3494eb8a18bd6521b418, type: 3}
+  _speedOfPlayer: 2
   _forceOfBullet: 0
   _healthOfPlater: 0

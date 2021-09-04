@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-
+﻿
 
 namespace TheRetroSpaceShooter
 {
@@ -14,6 +12,7 @@ namespace TheRetroSpaceShooter
             controllersHandler.Add(playerInitialization);
             controllersHandler.Add(new PlayerMoveController(inputInitialization.GetInput(),
                 playerInitialization.GetMoveShip));
+            controllersHandler.Add(new InputController(inputInitialization.GetInput()));
         }
     }
 }
