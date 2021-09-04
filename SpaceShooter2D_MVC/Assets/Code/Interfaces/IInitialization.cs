@@ -2,7 +2,7 @@
 
 namespace TheRetroSpaceShooter
 {
-    public interface IInitialization
+    public interface IInitialization : IController
     {
         public void Initialization();
     }
