@@ -9,6 +9,7 @@ namespace TheRetroSpaceShooter
 
         private readonly IUserInputProxy _inputHorizontal;
         private readonly IUserInputProxy _inputVertical;
+        private readonly IUserAccelerationProxy _inputAcceleration;
 
         #endregion
 
@@ -16,10 +17,11 @@ namespace TheRetroSpaceShooter
         #region ClassLifeCycles
 
         public InputController((IUserInputProxy horizontalInput, 
-            IUserInputProxy verticalInput)input)
+            IUserInputProxy verticalInput)input, IUserAccelerationProxy acceleration)
         {
             _inputHorizontal = input.horizontalInput;
             _inputVertical = input.verticalInput;
+            _inputAcceleration = acceleration;
     }
 
         #endregion
@@ -31,6 +33,7 @@ namespace TheRetroSpaceShooter
         {
             _inputHorizontal.GetAxis();
             _inputVertical.GetAxis();
+            _inputAcceleration.GetAxis();
         }
 
         #endregion
