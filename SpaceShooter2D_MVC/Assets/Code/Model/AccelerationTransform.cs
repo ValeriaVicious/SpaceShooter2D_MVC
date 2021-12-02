@@ -3,7 +3,7 @@
 
 namespace TheRetroSpaceShooter
 {
-    internal class MoveTransformOfPlayer : IMoveSpaceShip
+    internal sealed class AccelerationTransform : IAcceleration
     {
         #region Fields
 
@@ -12,34 +12,22 @@ namespace TheRetroSpaceShooter
 
         #endregion
 
-
-        #region Properties
-
         public float Speed { get; set; }
+        public float Acceleration { get; set; }
 
-        #endregion
-
-
-        #region ClasslIfeCycles
-
-        public MoveTransformOfPlayer(Transform transform, float speed)
+        public AccelerationTransform(Transform transform, float acceleration,
+            float speed)
         {
             _transformOfPlayer = transform;
+            Acceleration = acceleration;
             Speed = speed;
         }
 
-        #endregion
-
-
-        #region Methods
-
-        public void Move(float horizontal, float vertical, float deltaTime)
+        public void GetAcceleration(float horizontal, float vertical, float deltaTime)
         {
-            var speed = deltaTime * Speed;
+            var speed = Speed + Acceleration * deltaTime;
             _moveVector.Set(horizontal * speed, vertical * speed, 0.0f);
             _transformOfPlayer.localPosition += _moveVector;
         }
-
-        #endregion
     }
 }

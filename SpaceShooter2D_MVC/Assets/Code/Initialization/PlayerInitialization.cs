@@ -9,6 +9,7 @@ namespace TheRetroSpaceShooter
 
         private Player _player;
         private IMoveSpaceShip _moveSpaceShip;
+        private IAcceleration _accelerationMove;
 
         #endregion
 
@@ -17,6 +18,7 @@ namespace TheRetroSpaceShooter
 
         public Player GetPlayer => _player;
         public IMoveSpaceShip GetMoveShip => _moveSpaceShip;
+        public IAcceleration GetAcceleration => _accelerationMove;
 
         #endregion
 
@@ -27,6 +29,7 @@ namespace TheRetroSpaceShooter
         {
             _player = Object.Instantiate(playerConfig.PlayerPrefab);
             _moveSpaceShip = new MoveTransformOfPlayer(_player.transform, playerConfig.Speed);
+            _accelerationMove = new AccelerationTransform(_player.transform, playerConfig.AccelerationSpeed, playerConfig.Speed);
         }
 
         #endregion

@@ -12,6 +12,7 @@ namespace TheRetroSpaceShooter
         [SerializeField] private Rigidbody2D _rocketBody;
         [SerializeField] private Sprite _rocketSprite;
         [SerializeField] private float _speedOfPlayer;
+        [SerializeField] private float _accelerationSpeed;
         [SerializeField] private float _forceOfBullet;
         [SerializeField] private float _healthOfPlater;
 
@@ -22,6 +23,7 @@ namespace TheRetroSpaceShooter
 
         internal Player PlayerPrefab => _playerPrefab;
         internal float Speed => _speedOfPlayer;
+        internal float AccelerationSpeed => _accelerationSpeed;
 
         #endregion
     }

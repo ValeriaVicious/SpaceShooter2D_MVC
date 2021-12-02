@@ -8,6 +8,7 @@ namespace TheRetroSpaceShooter
 
         private IUserInputProxy _horizontalInput;
         private IUserInputProxy _verticalInput;
+        private IUserAccelerationProxy _accelerationProxy;
 
         #endregion
 
@@ -18,6 +19,7 @@ namespace TheRetroSpaceShooter
         {
             _horizontalInput = new InputHorizontal();
             _verticalInput = new InputVertical();
+            _accelerationProxy = new InputAcceleration();
         }
 
         #endregion
@@ -34,6 +36,11 @@ namespace TheRetroSpaceShooter
         {
             (IUserInputProxy horizontal, IUserInputProxy vertical) result = (_horizontalInput, _verticalInput);
             return result;
+        }
+
+        public IUserAccelerationProxy GetAcceleration()
+        {
+            return _accelerationProxy;
         }
 
         #endregion

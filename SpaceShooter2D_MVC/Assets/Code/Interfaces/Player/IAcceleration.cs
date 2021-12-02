@@ -4,7 +4,8 @@ namespace TheRetroSpaceShooter
 {
     public interface IAcceleration : IController
     {
-        public float AccelerationSpeed { get; }
+        public float Acceleration { get; set; }
+
         public void GetAcceleration(float horizontal, float vertical, float deltaTime);
     }
 }

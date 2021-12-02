@@ -7,10 +7,13 @@ namespace TheRetroSpaceShooter
         #region Fields
 
         private readonly IMoveSpaceShip _moveSpaceShip;
+        private IAcceleration _accelerationMove;
         private IUserInputProxy _horizontalInputProxy;
         private IUserInputProxy _verticalInputProxy;
+        private IUserAccelerationProxy _accelerationProxy;
         private float _horizontal;
         private float _vertical;
+        private bool _isAcceleration;
 
         #endregion
 
@@ -18,13 +21,16 @@ namespace TheRetroSpaceShooter
         #region ClassLifeCycles
 
         public PlayerMoveController((IUserInputProxy inputHorizontal, IUserInputProxy inputVertical) input,
-            IMoveSpaceShip moveSpaceShip)
+            IMoveSpaceShip moveSpaceShip, IUserAccelerationProxy inputAcceleration)
         {
             _moveSpaceShip = moveSpaceShip;
             _horizontalInputProxy = input.inputHorizontal;
             _verticalInputProxy = input.inputVertical;
+            _accelerationProxy = inputAcceleration;
+
             _horizontalInputProxy.AxisOnChangeEvent += HorizontalOnAxisChange;
             _verticalInputProxy.AxisOnChangeEvent += VerticalOnAxisChange;
+            _accelerationProxy.AxisOnChangeEvent += AccelerationOnAxisChange;
         }
 
         #endregion
@@ -36,6 +42,7 @@ namespace TheRetroSpaceShooter
         {
             _horizontalInputProxy.AxisOnChangeEvent -= HorizontalOnAxisChange;
             _verticalInputProxy.AxisOnChangeEvent -= VerticalOnAxisChange;
+            _accelerationProxy.AxisOnChangeEvent -= AccelerationOnAxisChange;
         }
 
         public void Execute(float deltaTime)
@@ -51,6 +58,11 @@ namespace TheRetroSpaceShooter
         private void VerticalOnAxisChange(float value)
         {
             _vertical = value;
+        }
+
+        private void AccelerationOnAxisChange(bool isAcceleration)
+        {
+            _isAcceleration = isAcceleration;
         }
 
         #endregion
